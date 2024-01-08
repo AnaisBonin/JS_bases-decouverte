@@ -8,12 +8,12 @@
 // - Annoncer le gagnant
 
 console.log('exo-3');
+const gameOptions = ['rock', 'paper', 'scissors'];
 
 let playerInput = prompt('Your choice ( rock, paper, scissors)');
 
 const getPlayerChoice = (playerInput) => {
   playerInput = playerInput.toLowerCase();
-  const gameOptions = ['rock', 'paper', 'scissors'];
 
   const isInputValid =
     gameOptions.find((element) => element == playerInput) != undefined;
@@ -21,4 +21,11 @@ const getPlayerChoice = (playerInput) => {
   return isInputValid ? playerInput : console.log(' nope! error');
 };
 
-getPlayerChoice(playerInput);
+const playerChoice = getPlayerChoice(playerInput);
+
+const getComputerChoice = () => {
+  const choice = Math.floor(Math.random() * 3);
+  return gameOptions[choice];
+};
+
+const computerChoice = getComputerChoice();
