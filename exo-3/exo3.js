@@ -18,7 +18,7 @@ const getPlayerChoice = (playerInput) => {
   const isInputValid =
     gameOptions.find((element) => element == playerInput) != undefined;
 
-  isInputValid ? console.log('valid') : console.log(' nope!');
+  return isInputValid ? playerInput : console.log(' nope! error');
 };
 
 getPlayerChoice(playerInput);
