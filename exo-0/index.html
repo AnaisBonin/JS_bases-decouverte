@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Exercice 0</h1>
 
-        <h1>Exercice 0</h1>
+    <script type="text/javascript">
+      /* Section 1 */
 
-        <script type="text/javascript">
+      var name = "Joe"; // Je définis une variable nommée 'name' associée à la valeur string 'Joe'
+      var city = "London"; // Je définis une variable nommée 'city' associée à la valeur string 'London'
+      var age = 32; // Je définis une variable nommée 'age' associée à l'integer 32
+      var isRed = true; // Je définis une variable nommée 'isRed' associée au boolean true
 
-        /* Section 1 */   
+      var previousJobs = ["lawyer", "developper", "Professionnal climber"]; // Je défini une variable nommée 'previousJobs' associée à une array contenant des string
 
-        var name = "Joe";
-        var city = 'London';
-        var age = 32;
-        var isRed = true;
-        var isOld = age > 80;
-
-        var previousJobs = ['lawyer', 'developper', 'Professionnal climber'];
-
-        function info(height, weight) {
-            if (height > 180) {
-                console.log('Vous êtes grand');
-            }
-            if (weight < 0) {
-                console.log('oups, there is a problem');
-            } else if ( weight < 15) {
-                console.log('Are you that slim ?')
-            } else {
-                console.log('Good !')
-            }
+      function info(height, weight) {
+        // Je défini une fonction nommée 'info' qui prend deux paramètres: height & weight
+        if (height > 180) {
+          // j'intègre un statement if: si la valeur passée en paramètre "height" est strictement supérieure à 180
+          console.log("Vous êtes grand"); // alors j'affiche dans la console "Vous êtes grand" - et je passe à la ligne suivante
         }
-
-        info(165, 45);
-
-        var myHeight = 175;
-        var myWeight = 86;
-
-        info(myHeight, myWeight);
-
-        info(myHeight + 15, myWeight - 100);
-
-        function toUpper(variable) {
-            return variable.toUpperCase();
+        if (weight < 0) {
+          // pareillement, si la valeur passée en paramètre weight est strictement inférieure à 0
+          console.log("oups, there is a problem"); // j'affiche en console "oups...."
+        } else if (weight < 15) {
+          // Si la condition précédente est fausse, je check si cette même valeur est inférieure à 15 (donc entre 0 et 15)
+          console.log("Are you that slim ?"); // si vrai: je console log....
+        } else {
+          console.log("Good !"); // Autrement, (si la valeur passée en paramètre weight est supérieure ou égale à 15), je console log 'Good !'
         }
+      }
 
-        var upperName = toUpper(name);
+      info(165, 45); // j'appelle la fonction 'info' que je viens de créer en lui passant comme para1 (height) l'integer 165, et en para2 (weight) l'integer 45
 
-        for (i = 0; i < 3; i = i + 1) {
-            console.log(previousJobs[i]);
-        }
+      var myHeight = 175; // Je définis une nouvelle variable nommée 'myHeight' associée à l'integer 175
+      var myWeight = 86; // Je définis une nouvelle variable nommée 'myWeight' associée à l'integer 86
 
-        /* Section 2: */
+      info(myHeight, myWeight); // J'appelle de nouveau ma fonction 'info' en lui passant en paramètres mes deux nouvelles variables
 
-        // afficher la ville dans laquele Joe vit.     
+      info(myHeight + 15, myWeight - 100); // Je réitère, cette fois en altérant la valeur passée en paramètre en calculant la valeur de myHeight + 15 (190), et my Weight -100 (-86)
 
-        // afficher si Joe est roux ou pas.
+      function toUpper(variable) {
+        // je crée une fonction nommée toUpper qui prend un paramètre 'variable'
+        return variable.toUpperCase(); // je retourne cette meme variable qui doit être de type string, pour que je puisse utiliser la méthode toUpperCase() qui consiste à mettre en majuscule une string
+      }
 
-        /* Section 3 */
+      var upperName = toUpper(name); // je définie une variable upperName, qui appelle ma fonction toUpper en lui passant en paramètre ma variable Name (Joe) --> pour return 'JOE'
 
-        // console.log(myVariable);
+      for (i = 0; i < 3; i = i + 1) {
+        // je crée une boucle For que j'initie à 0. Tant que cette valeur i est strictement inférieure à 3, j'incrémente cette valeur de +1
+        console.log(previousJobs[i]); // à chaque boucle, je vais console log la valeur stockée dans notre array previousJobs, en position i (valeur en 1ère position au premier tour (i = 0), .. 2ème position au second (i=1), .. 3ème position au 3ème (i = 2) et la boucle s'arrête car au prochain tour i = 3)
+      }
 
-        </script>
+      /* Section 2: */
 
-    </body>
+      // afficher la ville dans laquele Joe vit.
+      console.log(city);
+
+      // afficher si Joe est roux ou pas.
+      console.log(isRed ? "Joe est roux" : `Joe n'est pas roux`);
+
+      /* Section 3 */
+
+      console.log(myVariable); // cette ligne de code crée une erreur car on cherche à passer une variable 'myVariable' que l'on n'a jamais définie précédemment
+    </script>
+  </body>
 </html>
