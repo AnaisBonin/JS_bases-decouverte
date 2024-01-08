@@ -8,7 +8,7 @@
 // - Annoncer le gagnant
 
 console.log('exo-3');
-const gameOptions = ['rock', 'paper', 'scissors'];
+const gameOptions = ['rock', 'paper', 'scissors', 'bomb'];
 
 const getPlayerChoice = () => {
   let playerInput = prompt('Your choice ( rock, paper, scissors)');
@@ -30,10 +30,12 @@ const getComputerChoice = () => {
 const computerChoice = getComputerChoice();
 
 const findWinner = (playerChoice, computerChoice) => {
-  const won = 'You won!!scisso';
+  const won = 'You won!!';
   const lost = 'You lost....';
 
-  if (playerChoice === computerChoice) {
+  if (playerChoice === 'bomb') {
+    return won;
+  } else if (playerChoice === computerChoice) {
     return 'tied';
   } else if (playerChoice === 'rock') {
     return computerChoice === 'scissors' ? won : lost;
