@@ -18,7 +18,9 @@ const getPlayerChoice = (playerInput) => {
   const isInputValid =
     gameOptions.find((element) => element == playerInput) != undefined;
 
-  return isInputValid ? playerInput : console.log(' nope! error');
+  return isInputValid
+    ? playerInput
+    : console.log(' nope! error... refresh page!');
 };
 
 const playerChoice = getPlayerChoice(playerInput);
@@ -29,3 +31,18 @@ const getComputerChoice = () => {
 };
 
 const computerChoice = getComputerChoice();
+
+const findWinner = (playerChoice, computerChoice) => {
+  const won = 'Won';
+  const lost = 'Lost';
+
+  if (playerChoice === computerChoice) {
+    return 'tied';
+  } else if (playerChoice === 'rock') {
+    return computerChoice === 'scissors' ? won : lost;
+  } else if (playerChoice === 'paper') {
+    return computerChoice === 'scissors' ? won : lost;
+  } else if (playerChoice === 'scissors') {
+    return computerChoice === 'paper' ? won : lost;
+  }
+};
