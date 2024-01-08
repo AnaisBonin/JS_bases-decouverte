@@ -1,6 +1,6 @@
 // you can write js here
 console.log('exo-2');
-const isTesting = true;
+let isTesting = true;
 
 // Exo 2.1
 const myDate = new Date();
@@ -9,13 +9,20 @@ const weekDayMessage = 'Allez travailler';
 const weekendMessage = `C'est le weeekeeeend !!`;
 
 // Exo 2.2
-const currentDay = myDate.getDay();
+const currentDay = isTesting
+  ? prompt(`Entrer le numero du jour actuel de la semaine (ex: mardi = 2)`)
+  : myDate.getDay();
+
 const isWeekDay = currentDay < 6;
 console.log(isWeekDay ? weekDayMessage : weekendMessage);
 
 // Exo 2.3
 
-const currentHour = myDate.getHours();
+const currentHour = isTesting
+  ? prompt(
+      `Quelle heure est-il ? Entrez le chiffre correspondant aux heures seulement (ex: 16h45 = 16)`
+    )
+  : myDate.getHours();
 
 if (isWeekDay) {
   if (currentDay == 5 && currentHour > 16) {
