@@ -10,9 +10,8 @@
 console.log('exo-3');
 const gameOptions = ['rock', 'paper', 'scissors'];
 
-let playerInput = prompt('Your choice ( rock, paper, scissors)');
-
-const getPlayerChoice = (playerInput) => {
+const getPlayerChoice = () => {
+  let playerInput = prompt('Your choice ( rock, paper, scissors)');
   playerInput = playerInput.toLowerCase();
 
   const isInputValid =
@@ -23,8 +22,6 @@ const getPlayerChoice = (playerInput) => {
     : console.log(' nope! error... refresh page!');
 };
 
-const playerChoice = getPlayerChoice(playerInput);
-
 const getComputerChoice = () => {
   const choice = Math.floor(Math.random() * 3);
   return gameOptions[choice];
@@ -33,8 +30,8 @@ const getComputerChoice = () => {
 const computerChoice = getComputerChoice();
 
 const findWinner = (playerChoice, computerChoice) => {
-  const won = 'Won';
-  const lost = 'Lost';
+  const won = 'You won!!scisso';
+  const lost = 'You lost....';
 
   if (playerChoice === computerChoice) {
     return 'tied';
@@ -46,3 +43,13 @@ const findWinner = (playerChoice, computerChoice) => {
     return computerChoice === 'paper' ? won : lost;
   }
 };
+
+const playGame = () => {
+  const uChoice = getPlayerChoice();
+  console.log(`You chose: ${uChoice}`);
+  const computerChoice = getComputerChoice();
+  console.log(`Your opponent chose: ${computerChoice}`);
+  console.log(findWinner(uChoice, computerChoice));
+};
+
+playGame();
