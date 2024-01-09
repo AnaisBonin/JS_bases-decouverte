@@ -21,3 +21,17 @@ jsonDatas.map((item, i) => {
 });
 
 console.log(jsonDatas);
+
+/// 7.4 Lister les articles dans html
+
+let targetDiv = document.getElementById('articlesList');
+
+jsonDatas.map(({ typeTranslation }) => {
+  let newLi = document.createElement('li');
+  let articleName = document.createTextNode(typeTranslation);
+  newLi.appendChild(articleName);
+
+  return targetDiv.insertAdjacentElement('beforeend', newLi);
+});
+
+///
