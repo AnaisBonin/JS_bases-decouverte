@@ -143,3 +143,21 @@ const findOldestPlayer = (team) => {
 console.log(findOldestPlayer(team));
 
 ////// 6.13
+const orderByName = (players) => {
+  const names = [];
+  players.map(({ lastName }) => names.push(lastName));
+
+  return names.sort();
+};
+
+const getPlayersOrdered = (team) => {
+  const orderedPlayers = [];
+  const orderedNames = orderByName(team.players);
+  orderedNames.map((lastName) => {
+    const player = team.players.find((player) => player.lastName == lastName);
+    orderedPlayers.push(player);
+  });
+  return orderedPlayers;
+};
+
+console.log(getPlayersOrdered(team));
