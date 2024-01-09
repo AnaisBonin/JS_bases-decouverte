@@ -14,7 +14,7 @@ const typesTranslation = {
   show: 'concert',
 };
 
-/// 7.3
+/// 7.3 Add type translation to every item
 jsonDatas.map((item, i) => {
   const typeTranslation = typesTranslation[item.type];
   jsonDatas[i] = { ...item, typeTranslation };
@@ -24,8 +24,9 @@ console.log(jsonDatas);
 
 /// 7.4 Lister les articles dans html
 
-let targetDiv = document.getElementById('articlesList');
-
+////// Adding / removing items - General functions
+////// Adding / removing items - General functions
+////// Adding / removing items - General functions
 const createListItem = (content) => {
   let newLi = document.createElement('li');
   let articleName = document.createTextNode(content);
@@ -34,47 +35,9 @@ const createListItem = (content) => {
   return newLi;
 };
 
-const createTypeList = () => {
-  jsonDatas.map(({ typeTranslation }) => {
-    const li = createListItem(typeTranslation);
-
-    return targetDiv.insertAdjacentElement('beforeend', li);
-  });
-};
-
-createTypeList();
-
-/// 7.5  Au clic sur le bouton, afficher les articles du type entré
-
-const searchButton = document.getElementById('search-type');
-let articlesDiv = document.getElementById('found-articles');
-
-const getUserFilter = () => {
-  return document.getElementById('search-entry').value;
-};
-
-const filterArticles = (filter) => {
-  const filteredArticles = [];
-  jsonDatas.map((article) => {
-    if (article.typeTranslation == filter) {
-      filteredArticles.push(article);
-    }
-  });
-  return filteredArticles;
-};
-
-const getFilteredArticles = () => {
-  const filter = getUserFilter();
-  const articles = filterArticles(filter);
-
-  return articles;
-};
-
-const displayFilteredArticles = (target) => {
-  const filteredArticles = getFilteredArticles();
-
-  filteredArticles.map(({ name }) => {
-    const li = createListItem(name);
+const displayList = (list, target) => {
+  list.map((item) => {
+    const li = createListItem(item);
 
     return target.insertAdjacentElement('beforeend', li);
   });
@@ -86,10 +49,83 @@ const clearList = (target) => {
   }
 };
 
+////// Display type list
+
+let typeListTarget = document.getElementById('articlesList');
+
+const createTypeList = () => {
+  const types = [];
+  jsonDatas.map(({ typeTranslation }) => types.push(typeTranslation));
+
+  return types;
+};
+
+const typeList = createTypeList();
+
+displayList(typeList, typeListTarget);
+
+//////////FILTER
+//////////FILTER
+//////////FILTER
+//////////FILTER
+/// 7.5  Au clic sur le bouton, afficher les articles du type entré
+
+const searchButton = document.getElementById('search-type');
+const checkBoxButton = document.getElementById('validate-check');
+
+let articlesDiv = document.getElementById('found-articles');
+let selectAvailableOnly = document.getElementById('available-items').checked;
+
+let selectAllItems = !selectAvailableOnly;
+
+const getUserFilter = () => {
+  return document.getElementById('search-entry').value;
+};
+
+const filterArticles = (filter) => {
+  const filteredArticles = [];
+
+  jsonDatas.map((article) => {
+    const isAvailable = article.quantity > 0;
+    if (article.typeTranslation == filter) {
+      console.log(' //////////////////');
+      console.log(isAvailable);
+      if (isAvailable || selectAllItems) {
+        filteredArticles.push(article);
+      }
+    }
+  });
+
+  return filteredArticles;
+};
+
+const getFilteredArticles = () => {
+  const filter = getUserFilter();
+  const articles = filterArticles(filter);
+
+  return articles;
+};
+
+const displayFilteredArticlesIn = (target) => {
+  const filteredArticles = getFilteredArticles();
+
+  filteredArticles.map(({ name }) => {
+    const li = createListItem(name);
+
+    return target.insertAdjacentElement('beforeend', li);
+  });
+};
+
+const getCheckValue = () => {
+  console.log(availableItemCheck.checked);
+};
+
 const onClick = (e) => {
   clearList(articlesDiv);
-  displayFilteredArticles(articlesDiv);
+  displayFilteredArticlesIn(articlesDiv);
   e.preventDefault();
 };
 
 searchButton.addEventListener('click', onClick);
+
+checkBoxButton.addEventListener('click', onClick);
