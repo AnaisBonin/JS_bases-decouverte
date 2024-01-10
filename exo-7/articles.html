@@ -3,34 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="StyleSheet" href="./styles.css" type="text/css" />
     <title>Articles</title>
   </head>
   <body>
     <header>
       <h1>Super site</h1>
       <nav>
-        <li><a href="./index.html">Retour home</a></li>
+        <li><a href="./index.html"> *_* Retour home *_* </a></li>
       </nav>
     </header>
     <main>
       <h2>Types d'articles disponibles:</h2>
       <ul id="articlesList"></ul>
-      <div>
+      <div class="entry-box">
         <label for="search-entry">Entrer le type à chercher :</label>
         <input type="text" id="search-entry" />
         <button id="search-type">Chercher</button>
       </div>
-      <input
-        type="checkbox"
-        id="available-items"
-        name="filter-available"
-        value="filter-available"
-        checked
-      />
-      <label for="available-items"
-        >Montrer les articles disponibles seulement</label
-      >
-      <button id="validate-check">Ok</button>
+      <div class="entry-box">
+        <input
+          type="checkbox"
+          id="available-items"
+          name="filter-available"
+          value="filter-available"
+          checked
+        />
+        <label for="available-items"
+          >Montrer les articles disponibles seulement</label
+        >
+        <button id="validate-check">Ok</button>
+      </div>
       <section id="found-articles"></section>
     </main>
 

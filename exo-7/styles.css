@@ -1,0 +1,106 @@
+/*****************************************************/
+/* GENERAL RULES */
+/* GENERAL RULES */
+/* GENERAL RULES */
+/* GENERAL RULES */
+/* GENERAL RULES */
+/*****************************************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+:root {
+  --light-wine: #ddcdd3;
+  --pink: #ffafcc;
+  --wine: #c2628f;
+  --dark-wine: #841551;
+  --purple: #a491e5;
+  --dark-blue: #0e0c76;
+  --blue: #2b40ba;
+  --light-blue: #4873fe;
+  --grey: #7271ad;
+  --dark: #04072e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inria Sans', sans-serif;
+  border: none;
+}
+
+body {
+  width: 100%;
+  background-color: var(--light-wine);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header,
+main,
+footer {
+  width: 90%;
+  max-width: 900px;
+}
+
+h1 {
+  margin: 2rem;
+  color: var(--dark-blue);
+  font-family: 'Zeyada';
+  font-size: 4rem;
+  text-align: center;
+}
+
+h2 {
+  margin: 2rem 0 1rem;
+  color: var(--dark-wine);
+  font-family: 'Zeyada';
+  font-size: 2rem;
+}
+
+menu,
+nav,
+ul,
+a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+menu,
+nav {
+  color: var(--wine);
+  font-weight: bold;
+  text-align: center;
+}
+
+a {
+  color: inherit;
+}
+
+.entry-box {
+  margin: 1rem 0;
+}
+
+.entry-box > label {
+  color: var(--light-blue);
+}
+
+.entry-box > button {
+  margin: 0 1rem;
+  padding: 0.3rem 0.6rem;
+  border: 0px;
+  border-radius: 15px;
+  background-color: var(--light-blue);
+  color: aliceblue;
+}
+
+#found-articles {
+  margin-bottom: 2rem;
+  padding: 1.5rem 2rem;
+  background-color: var(--grey);
+  min-height: 150px;
+  border-radius: 6px;
+  color: aliceblue;
+}
