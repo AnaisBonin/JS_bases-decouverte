@@ -55,9 +55,19 @@ const clearList = (target) => {
 
 let typeListTarget = document.getElementById('articlesList');
 
+const findAllTypes = () =>
+  jsonDatas.map(({ typeTranslation }) => typeTranslation);
+
 const createTypeList = () => {
   const types = [];
-  jsonDatas.map(({ typeTranslation }) => types.push(typeTranslation));
+
+  findAllTypes().map((type) => {
+    const alreadyRegistered = types.find((savedType) => savedType == type);
+
+    if (!alreadyRegistered) {
+      types.push(type);
+    }
+  });
 
   return types;
 };
