@@ -133,8 +133,9 @@ const getFilteredArticles = () => {
 const displayFilteredArticlesIn = (target) => {
   const filteredArticles = getFilteredArticles();
 
-  filteredArticles.map(({ name }) => {
-    const li = createListItem(name);
+  filteredArticles.map(({ name, price, quantity }) => {
+    const articleContent = `${name} ///// Prix : ${price}€ - Quantite : ${quantity}`;
+    const li = createListItem(articleContent);
 
     return target.insertAdjacentElement('beforeend', li);
   });

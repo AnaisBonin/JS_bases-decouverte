@@ -55,7 +55,7 @@ h1 {
 
 h2 {
   margin: 2rem 0 1rem;
-  color: var(--dark-wine);
+  color: var(--blue);
   font-family: 'Zeyada';
   font-size: 2rem;
 }
@@ -99,8 +99,40 @@ a {
 #found-articles {
   margin-bottom: 2rem;
   padding: 1.5rem 2rem;
-  background-color: var(--grey);
+  background-color: var(--purple);
   min-height: 150px;
   border-radius: 6px;
   color: aliceblue;
+}
+
+#filterByInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  color: var(--light-blue);
+}
+
+#filterByInfo > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+}
+#filterByInfo > div > label {
+  margin: 0 0.5rem;
+}
+
+/* Radio buttons Asc / Desc */
+.order {
+  appearance: none;
+  background-color: var(--purple);
+  width: 15px;
+  height: 15px;
+  border-radius: 40%;
+  transition: all 0.3s ease;
+}
+
+.order:checked {
+  background: var(--light-blue);
 }

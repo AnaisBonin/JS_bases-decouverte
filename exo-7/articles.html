@@ -15,25 +15,71 @@
     </header>
     <main>
       <h2>Types d'articles disponibles:</h2>
-      <ul id="articlesList"></ul>
-      <div class="entry-box">
-        <label for="search-entry">Entrer le type à chercher :</label>
-        <input type="text" id="search-entry" />
-        <button id="search-type">Chercher</button>
-      </div>
-      <div class="entry-box">
-        <input
-          type="checkbox"
-          id="available-items"
-          name="filter-available"
-          value="filter-available"
-          checked
-        />
-        <label for="available-items"
-          >Montrer les articles disponibles seulement</label
-        >
-        <button id="validate-check">Ok</button>
-      </div>
+      <section>
+        <ul id="articlesList"></ul>
+        <div class="entry-box">
+          <label for="search-entry">Entrer le type à chercher :</label>
+          <input type="text" id="search-entry" />
+          <button id="search-type">Chercher</button>
+        </div>
+        <div class="entry-box">
+          <input
+            type="checkbox"
+            id="available-items"
+            name="filter-available"
+            value="filter-available"
+            checked
+          />
+          <label for="available-items"
+            >Montrer les articles disponibles seulement</label
+          >
+          <button id="validate-check">Ok</button>
+        </div>
+        <div>
+          <fieldset id="filterByInfo">
+            <legend>Filtrer par:</legend>
+            <div>
+              <input
+                type="radio"
+                id="filterByName"
+                name="filterByInfo"
+                value="Nom"
+                checked
+              />
+              <label for="filterByName">Nom</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="filterByPrice"
+                name="filterByInfo"
+                value="Prix"
+              />
+              <label for="filterByPrice">Prix</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="filterAsc"
+                class="order"
+                name="order"
+                value="asc"
+              />
+              <label for="filterAsc">Ascendant</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="filterDesc"
+                class="order"
+                name="order"
+                value="desc"
+              />
+              <label for="filterDesc">Descendant</label>
+            </div>
+          </fieldset>
+        </div>
+      </section>
       <section id="found-articles"></section>
     </main>
 
