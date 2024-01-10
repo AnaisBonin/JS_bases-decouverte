@@ -82,6 +82,49 @@
         </div>
       </section>
       <section id="found-articles"></section>
+      <section>
+        <h2>Ajouter un article</h2>
+        <form id="addItem">
+          <div>
+            <label for="itemName">Nom du Produit : </label>
+            <input type="text" id="itemName" name="newItem" placeholder="Nom" />
+          </div>
+          <div>
+            <label for="itemPrice">Prix: </label>
+            <input
+              type="text"
+              id="itemPrice"
+              name="newItem"
+              placeholder="Prix"
+            />
+          </div>
+          <div>
+            <label for="itemQuantity">Quantity: </label>
+            <input
+              type="text"
+              id="itemQuantity"
+              name="newItem"
+              placeholder="Quantity"
+            />
+          </div>
+          <div>
+            <label for="itemType">Type: </label>
+            <input
+              type="text"
+              id="itemType"
+              name="newItem"
+              placeholder="Type"
+            />
+          </div>
+          <div>
+            <label for="itemDescription">Description: </label>
+            <textarea id="itemDescription" name="newItem" maxlength="120">
+Entrez une description courte</textarea
+            >
+          </div>
+          <button>Ajouter l'article</button>
+        </form>
+      </section>
     </main>
 
     <script src="datas.js"></script>

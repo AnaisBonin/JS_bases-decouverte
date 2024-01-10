@@ -31,6 +31,7 @@
 }
 
 body {
+  padding-bottom: 150px;
   width: 100%;
   background-color: var(--light-wine);
   display: flex;
@@ -139,4 +140,46 @@ a {
 
 .order:checked {
   background: var(--light-blue);
+}
+
+/* Add an item to list */
+#addItem {
+  margin: 1rem 0;
+  padding: 1rem;
+  width: 340px;
+  background-color: var(--wine);
+  border-radius: 8px;
+}
+
+#addItem > div {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#addItem > div > input,
+textarea {
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+}
+
+#itemDescription {
+  resize: none;
+  width: 200px;
+  height: 100px;
+  text-align: left;
+}
+
+#addItem > button {
+  margin: 0.5rem 0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 15px;
+  background-color: var(--dark-wine);
+  color: aliceblue;
+  transition: background-color 0.5s ease;
+}
+
+#addItem > button:hover {
+  background-color: var(--dark-blue);
+  cursor: pointer;
 }
