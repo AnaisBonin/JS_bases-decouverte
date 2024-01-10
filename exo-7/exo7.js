@@ -20,6 +20,7 @@ jsonDatas.map((item, i) => {
   jsonDatas[i] = { ...item, typeTranslation };
 });
 
+console.log('With type translation');
 console.log(jsonDatas);
 
 /// 7.4 Lister les articles dans html
@@ -27,17 +28,18 @@ console.log(jsonDatas);
 /// \\\
 ////// Adding / removing items - General functions
 /// \\\
-const createListItem = (content) => {
-  let newLi = document.createElement('li');
-  let articleName = document.createTextNode(content);
-  newLi.appendChild(articleName);
 
-  return newLi;
+const createHtmlElement = (content, el) => {
+  let newEl = document.createElement(el);
+  let text = document.createTextNode(content);
+  newEl.appendChild(text);
+
+  return newEl;
 };
 
 const displayList = (list, target) => {
   list.map((item) => {
-    const li = createListItem(item);
+    const li = createHtmlElement(item, 'li');
 
     return target.insertAdjacentElement('beforeend', li);
   });
@@ -49,11 +51,13 @@ const clearList = (target) => {
   }
 };
 
+const getEl = (el) => document.getElementById(el);
+
 /// \\\
 /// Display type list
 /// \\\
 
-let typeListTarget = document.getElementById('articlesList');
+let typeListTarget = getEl('articlesList');
 
 const findAllTypes = () =>
   jsonDatas.map(({ typeTranslation }) => typeTranslation);
@@ -79,17 +83,17 @@ displayList(typeList, typeListTarget);
 /// 7.5  Au clic sur le bouton, afficher les articles du type entré
 
 ///Targets
-let articlesDiv = document.getElementById('found-articles');
+let articlesDiv = getEl('found-articles');
 
 /// \\\\
 /// START \\\ Checkbox items available mecanism
 /// \\\\
 
-const checkBoxButton = document.getElementById('validate-check');
+const checkBoxButton = getEl('validate-check');
 let selectAvailableOnly = true;
 
 const setSelectAvailableOnly = () => {
-  selectAvailableOnly = document.getElementById('available-items').checked;
+  selectAvailableOnly = getEl('available-items').checked;
 };
 
 setSelectAvailableOnly();
@@ -103,17 +107,17 @@ setSelectAvailableOnly();
 /// \\\
 
 // 1. list all radiobuttons to listen to
-const nameRadioButton = document.getElementById('orderByName');
-const priceRadioButton = document.getElementById('orderByPrice');
-const ascRadioButton = document.getElementById('orderAsc');
-const descRadioButton = document.getElementById('orderDesc');
+const nameRadioButton = getEl('orderByName');
+const priceRadioButton = getEl('orderByPrice');
+const ascRadioButton = getEl('orderAsc');
+const descRadioButton = getEl('orderDesc');
 
 let orderByName = true;
 let orderByAsc = true;
 
 const setOrderBooleans = () => {
-  orderByName = document.getElementById('orderByName').checked;
-  orderByAsc = document.getElementById('orderAsc').checked;
+  orderByName = getEl('orderByName').checked;
+  orderByAsc = getEl('orderAsc').checked;
 };
 
 setOrderBooleans();
@@ -144,10 +148,10 @@ const orderProductList = (list) => {
 /// \\\\
 /// START \\\ Filter items by type
 /// \\\\
-const searchButton = document.getElementById('search-type');
+const searchButton = getEl('search-type');
 
 const getUserFilter = () => {
-  return document.getElementById('search-entry').value;
+  return getEl('search-entry').value;
 };
 
 const filterArticles = (filter) => {
@@ -180,7 +184,7 @@ const displayFilteredArticlesIn = (target) => {
 
   orderedList.map(({ name, price, quantity }) => {
     const articleContent = `${name} ///// Prix : ${price}€ - Quantite : ${quantity}`;
-    const li = createListItem(articleContent);
+    const li = createHtmlElement(articleContent, 'li');
 
     return target.insertAdjacentElement('beforeend', li);
   });
@@ -196,8 +200,26 @@ const onClick = () => {
 /// \\\
 
 /// \\\
+/// START \\\ Add type options to Create a new item
+/// \\\
+
+const typeDropdown = getEl('itemType');
+
+const addOptionToTypeSelect = (options) => {
+  const content = options.map((type) => `<option> ${type} </option>`).join(' ');
+  return (typeDropdown.innerHTML = content);
+};
+
+addOptionToTypeSelect(typeList);
+
+/// \\\
+/// END \\\ Add type options to Create a new item
+/// \\\
+
+/// \\\
 /// \\\ EVENT Listener
 /// \\\
+
 searchButton.addEventListener('click', onClick);
 checkBoxButton.addEventListener('click', onClick);
 

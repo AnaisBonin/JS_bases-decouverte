@@ -158,7 +158,9 @@ a {
 }
 
 #addItem > div > input,
-textarea {
+textarea,
+select {
+  width: 170px;
   padding: 0.2rem 0.5rem;
   border-radius: 8px;
 }
