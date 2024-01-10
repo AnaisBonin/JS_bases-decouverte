@@ -105,7 +105,11 @@ a {
   color: aliceblue;
 }
 
-#filterByInfo {
+/* Radio buttons to reorder list */
+/* Radio buttons to reorder list */
+/* Radio buttons to reorder list */
+
+#orderByInfo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,13 +117,13 @@ a {
   color: var(--light-blue);
 }
 
-#filterByInfo > div {
+#orderByInfo > div {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 1rem;
 }
-#filterByInfo > div > label {
+#orderByInfo > div > label {
   margin: 0 0.5rem;
 }
 

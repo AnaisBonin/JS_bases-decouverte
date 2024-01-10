@@ -36,46 +36,47 @@
           <button id="validate-check">Ok</button>
         </div>
         <div>
-          <fieldset id="filterByInfo">
-            <legend>Filtrer par:</legend>
+          <fieldset id="orderByInfo">
+            <legend>Reorganiser les articles selon :</legend>
             <div>
               <input
                 type="radio"
-                id="filterByName"
-                name="filterByInfo"
+                id="orderByName"
+                name="orderByInfo"
                 value="Nom"
                 checked
               />
-              <label for="filterByName">Nom</label>
+              <label for="orderByName">Nom</label>
             </div>
             <div>
               <input
                 type="radio"
-                id="filterByPrice"
-                name="filterByInfo"
+                id="orderByPrice"
+                name="orderByInfo"
                 value="Prix"
               />
-              <label for="filterByPrice">Prix</label>
+              <label for="orderByPrice">Prix</label>
             </div>
             <div>
               <input
                 type="radio"
-                id="filterAsc"
+                id="orderAsc"
                 class="order"
                 name="order"
                 value="asc"
+                checked
               />
-              <label for="filterAsc">Ascendant</label>
+              <label for="orderAsc">Ascendant</label>
             </div>
             <div>
               <input
                 type="radio"
-                id="filterDesc"
+                id="orderDesc"
                 class="order"
                 name="order"
                 value="desc"
               />
-              <label for="filterDesc">Descendant</label>
+              <label for="orderDesc">Descendant</label>
             </div>
           </fieldset>
         </div>

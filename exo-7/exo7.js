@@ -98,6 +98,49 @@ setSelectAvailableOnly();
 /// END \\\ Checkbox items available mecanism
 /// \\\\
 
+/// \\\
+/// START \\\ Order items by name, price, asc, dec
+/// \\\
+
+// 1. list all radiobuttons to listen to
+const nameRadioButton = document.getElementById('orderByName');
+const priceRadioButton = document.getElementById('orderByPrice');
+const ascRadioButton = document.getElementById('orderAsc');
+const descRadioButton = document.getElementById('orderDesc');
+
+let orderByName = true;
+let orderByAsc = true;
+
+const setOrderBooleans = () => {
+  orderByName = document.getElementById('orderByName').checked;
+  orderByAsc = document.getElementById('orderAsc').checked;
+};
+
+setOrderBooleans();
+
+// 2. create functions to order list by...
+
+const orderListByName = (list) =>
+  list.sort((a, b) =>
+    orderByAsc == true
+      ? a.name.localeCompare(b.name)
+      : b.name.localeCompare(a.name)
+  );
+
+const orderListByPrice = (list) =>
+  list.sort((a, b) =>
+    orderByAsc == true ? a.price - b.price : a.price + b.price
+  );
+
+const orderProductList = (list) => {
+  setOrderBooleans();
+  return orderByName ? orderListByName(list) : orderListByPrice(list);
+};
+
+/// \\\
+/// END \\\ Order items by name, price, asc, dec
+/// \\\
+
 /// \\\\
 /// START \\\ Filter items by type
 /// \\\\
@@ -133,7 +176,9 @@ const getFilteredArticles = () => {
 const displayFilteredArticlesIn = (target) => {
   const filteredArticles = getFilteredArticles();
 
-  filteredArticles.map(({ name, price, quantity }) => {
+  const orderedList = orderProductList(filteredArticles);
+
+  orderedList.map(({ name, price, quantity }) => {
     const articleContent = `${name} ///// Prix : ${price}€ - Quantite : ${quantity}`;
     const li = createListItem(articleContent);
 
@@ -141,10 +186,9 @@ const displayFilteredArticlesIn = (target) => {
   });
 };
 
-const onClick = (e) => {
+const onClick = () => {
   clearList(articlesDiv);
   displayFilteredArticlesIn(articlesDiv);
-  e.preventDefault();
 };
 
 /// \\\
@@ -156,3 +200,9 @@ const onClick = (e) => {
 /// \\\
 searchButton.addEventListener('click', onClick);
 checkBoxButton.addEventListener('click', onClick);
+
+/// Radio buttons
+nameRadioButton.addEventListener('click', onClick);
+priceRadioButton.addEventListener('click', onClick);
+ascRadioButton.addEventListener('click', onClick);
+descRadioButton.addEventListener('click', onClick);
